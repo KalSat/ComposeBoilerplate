@@ -1,0 +1,65 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        // plugins
+        agpVersion = '8.0.1'
+        kotlinVersion = '1.7.20'
+        spotlessVersion = '6.18.0'
+
+        // android.defaultConfig
+        compileSdkVersion = 33
+        minSdkVersion = 24
+        targetSdkVersion = 33
+
+        // foundation
+        multidexVersion = '2.0.1'
+        coreKtxVersion = '1.8.0'
+        lifecycleRuntimeKtxVersion = '2.3.1'
+        lifecycleVersion = '2.5.1'
+        kotlinStdlibVersion = '1.8.10'
+        coroutinesVersion = '1.6.1'
+
+        // compose
+        activityComposeVersion = '1.5.1'
+        navigationComposeVersion = '2.5.3'
+        composeBomVersion = '2022.10.00'
+        coilComposeVersion = '2.1.0'
+
+        // di
+        hiltVersion = '2.45'
+        hiltNavigationComposeVersion = '1.0.0'
+
+        // network
+        okhttpVersion = '4.11.0'
+        retrofitVersion = '2.9.0'
+        gsonVersion = '2.10.1'
+
+        // test
+        junitVersion = '4.13.2'
+        androidTestJunitVersion = '1.1.5'
+        espressoVersion = '3.5.1'
+        mockkVersion = '1.13.5'
+        assertjVersion = '3.24.2'
+        robolectricVersion = '4.9.2'
+        testCoreVersion = '1.5.0'
+    }
+}
+
+plugins {
+    id 'com.android.application' version "$agpVersion" apply false
+    id 'com.android.library' version "$agpVersion" apply false
+    id 'org.jetbrains.kotlin.android' version "$kotlinVersion" apply false
+    id 'com.google.dagger.hilt.android' version "$hiltVersion" apply false
+    id 'com.diffplug.spotless' version "$spotlessVersion"
+}
+
+subprojects {
+    spotless {
+        kotlin {
+            ktlint()
+                    .userData([android: 'true'])
+                    .setEditorConfigPath("$rootProject.projectDir/.editorconfig")
+            target '**/*.kt'
+        }
+    }
+}
