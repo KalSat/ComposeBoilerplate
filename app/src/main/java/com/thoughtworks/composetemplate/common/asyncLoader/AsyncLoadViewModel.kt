@@ -3,6 +3,8 @@ package com.thoughtworks.composetemplate.common.asyncLoader
 import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import java.io.PrintWriter
+import java.io.StringWriter
 import kotlinx.coroutines.launch
 
 open class AsyncLoadViewModel<T : Any> constructor(
@@ -23,7 +25,10 @@ open class AsyncLoadViewModel<T : Any> constructor(
                 dataViewModel.data = data
                 loadState = LoadState.Success(data)
             } catch (e: Exception) {
-                Log.e("AsyncLoadViewModel", "there is an error in fetcher", e)
+                StringWriter().use { sw ->
+                    e.printStackTrace(PrintWriter(sw))
+                    Log.e("AsyncLoadViewModel", "there is an error in fetcher\n$sw")
+                }
                 loadState = LoadState.Failure(data, e)
             }
         }

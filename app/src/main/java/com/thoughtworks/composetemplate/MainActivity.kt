@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
                 LocalActivity provides this@MainActivity,
             ) {
                 ComposeApp(
-                    firstScreen = Routes.HOME,
+                    firstScreen = FIRST_SCREEN,
                     navControllerProvider = navControllerProvider,
                 )
             }

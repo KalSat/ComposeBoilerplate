@@ -3,10 +3,10 @@ package com.thoughtworks.composetemplate
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Scaffold
-import androidx.compose.material.TopAppBar
-import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.DisposableEffect
@@ -18,6 +18,7 @@ import com.thoughtworks.composetemplate.common.di.NavControllerProvider
 import com.thoughtworks.composetemplate.ui.compose.meta.LocalNavController
 import com.thoughtworks.composetemplate.ui.theme.ComposeTemplateTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ComposeApp(
     firstScreen: String,
@@ -25,7 +26,6 @@ fun ComposeApp(
 ) {
     ComposeTemplateTheme {
         val navController = rememberNavController()
-        val scaffoldState = rememberScaffoldState()
 
         val focusManager = LocalFocusManager.current
 
@@ -46,11 +46,10 @@ fun ComposeApp(
                             focusManager.clearFocus()
                         })
                     },
-                scaffoldState = scaffoldState,
                 topBar = {
-                    TopAppBar {
+                    TopAppBar({
                         Text(text = "Compose Template")
-                    }
+                    })
                 },
             ) { paddingValues ->
                 Box(
