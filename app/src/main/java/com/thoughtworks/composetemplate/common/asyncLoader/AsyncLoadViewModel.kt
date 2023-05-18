@@ -1,6 +1,9 @@
 package com.thoughtworks.composetemplate.common.asyncLoader
 
 import android.util.Log
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import java.io.PrintWriter
@@ -12,7 +15,7 @@ open class AsyncLoadViewModel<T : Any> constructor(
 ) : ViewModel() {
     private val idle = LoadState.Idle<T>()
 
-    var loadState: LoadState<T> = idle
+    var loadState: LoadState<T> by mutableStateOf(idle)
         protected set
     private var data: T? = null
 
