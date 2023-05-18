@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.thoughtworks.composetemplate.home.HomeScreen
+import com.thoughtworks.composetemplate.screen.home.HomeScreen
 
 object Routes {
     const val HOME = "home"

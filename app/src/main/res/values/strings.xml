@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ComposeTemplate</string>
+    <string name="loading">Loading…</string>
+    <string name="retry">Retry</string>
+    <string name="connection_error_title">Connection Error</string>
+    <string name="connection_error_subtitle">Please check you network connection.</string>
+    <string name="parse_and_loading_error_title">Parse or Loading Error</string>
+    <string name="parse_and_loading_error_subtitle">Oops! something went wrong.</string>
 </resources>
