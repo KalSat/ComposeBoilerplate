@@ -32,5 +32,4 @@ class CoroutineModule {
     @ComposeUiDispatcher
     @Provides
     fun provideComposeUiDispatcher(): CoroutineContext = AndroidUiDispatcher.Main
-
 }

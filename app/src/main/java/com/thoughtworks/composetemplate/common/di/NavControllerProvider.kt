@@ -77,4 +77,3 @@ private class DummyNavController(context: Context) : NavController(context) {
         }
     }
 }
-

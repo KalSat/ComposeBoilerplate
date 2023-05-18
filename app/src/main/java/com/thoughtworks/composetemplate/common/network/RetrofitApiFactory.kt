@@ -32,7 +32,6 @@ class RetrofitApiFactory @Inject constructor(
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
 }
 
 @Target(AnnotationTarget.CLASS)

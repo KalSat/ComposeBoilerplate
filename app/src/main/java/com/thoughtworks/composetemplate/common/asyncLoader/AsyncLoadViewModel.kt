@@ -41,5 +41,4 @@ open class AsyncLoadViewModel<T : Any> constructor(
         loadState = idle
         data = null
     }
-
 }

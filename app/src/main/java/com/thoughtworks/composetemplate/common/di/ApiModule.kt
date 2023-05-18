@@ -24,5 +24,4 @@ class ApiModule {
     fun providerDogApi(retrofitApiFactory: RetrofitApiFactory): DogApi {
         return retrofitApiFactory.createApi()
     }
-
 }

@@ -4,7 +4,6 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.unit.dp
 
-
 @Suppress("unused")
 @Immutable
 class Spacing {

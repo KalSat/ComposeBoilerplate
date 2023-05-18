@@ -14,5 +14,4 @@ interface CatApi {
         @Query("page") page: Int = 1,
         @Query("order") order: String = "desc",
     ): List<Animal>
-
 }
