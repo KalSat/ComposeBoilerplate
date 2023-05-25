@@ -14,11 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import com.thoughtworks.composetemplate.R
-import com.thoughtworks.composetemplate.ui.theme.Spacing
-
-private val LOADING_IMAGE_SIZE = 66.dp
+import com.thoughtworks.composetemplate.ui.theme.EdgeInset
+import com.thoughtworks.composetemplate.ui.theme.Size
 
 @Composable
 fun LoadingPlaceholder(modifier: Modifier = Modifier) {
@@ -30,13 +28,13 @@ fun LoadingPlaceholder(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        CircularProgressIndicator(
-            modifier = Modifier
-                .size(LOADING_IMAGE_SIZE)
+        CircularProgressIndicator(modifier = Modifier.size(Size.XL))
+
+        Spacer(modifier = Modifier.height(EdgeInset.S))
+
+        Text(
+            text = stringResource(R.string.loading),
+            color = MaterialTheme.colorScheme.onSurface
         )
-
-        Spacer(modifier = Modifier.height(Spacing.XXS))
-
-        Text(text = stringResource(R.string.loading))
     }
 }

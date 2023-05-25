@@ -1,13 +1,13 @@
 package com.thoughtworks.composetemplate.common.asyncLoader
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,9 +17,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import com.thoughtworks.composetemplate.R
-import com.thoughtworks.composetemplate.ui.theme.Spacing
+import com.thoughtworks.composetemplate.ui.theme.EdgeInset
+import com.thoughtworks.composetemplate.ui.theme.Size
 
 enum class ErrorType(
     val title: Int,
@@ -39,8 +39,6 @@ enum class ErrorType(
     )
 }
 
-val PLACEHOLDER_IMAGE_SIZE = 180.dp
-
 @Composable
 fun ErrorPlaceholder(
     modifier: Modifier = Modifier,
@@ -49,42 +47,42 @@ fun ErrorPlaceholder(
 ) {
     Column(
         modifier = modifier
-            .background(MaterialTheme.colorScheme.surface)
-            .padding(horizontal = Spacing.XS),
+            .padding(horizontal = EdgeInset.M),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
-            modifier = Modifier.size(PLACEHOLDER_IMAGE_SIZE),
+            modifier = Modifier.size(Size.Giant),
             painter = painterResource(id = errorType.imgId),
             contentDescription = stringResource(id = errorType.title),
             alignment = Alignment.Center,
             contentScale = ContentScale.FillBounds,
         )
+
+        Spacer(modifier = Modifier.height(EdgeInset.M))
+
         Text(
-            modifier = Modifier.padding(top = Spacing.XS),
             text = stringResource(id = errorType.title),
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleSmall,
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onSurface
+            color = MaterialTheme.colorScheme.onBackground
         )
+
+        Spacer(modifier = Modifier.height(EdgeInset.XXS))
+
         Text(
-            modifier = Modifier.padding(top = Spacing.XXXS, bottom = Spacing.S),
             text = stringResource(id = errorType.subTitle),
             style = MaterialTheme.typography.labelMedium,
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onSurface
+            color = MaterialTheme.colorScheme.onBackground
         )
+
+        Spacer(modifier = Modifier.height(EdgeInset.L))
+
         Button(
-            colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.primary,
-            ),
             onClick = onRetry
         ) {
-            Text(
-                text = stringResource(R.string.retry),
-//                color = MaterialTheme.colors.onPrimary
-            )
+            Text(text = stringResource(R.string.retry))
         }
     }
 }
