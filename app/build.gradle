@@ -23,6 +23,8 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        buildConfigField "Boolean", "ADD_DEV_MENU", "${gradle.ext.addDevMenu}"
     }
 
     buildTypes {
@@ -58,6 +60,13 @@ android {
         packagingOptions {
             jniLibs {
                 useLegacyPackaging = true
+            }
+        }
+    }
+    sourceSets {
+        main {
+            if (gradle.ext.addDevMenu) {
+                java.srcDirs += 'src/devMenu/java'
             }
         }
     }

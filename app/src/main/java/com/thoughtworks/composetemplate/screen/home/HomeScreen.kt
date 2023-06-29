@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.thoughtworks.composetemplate.ui.compose.meta.LocalDevMenu
 import com.thoughtworks.composetemplate.ui.compose.scaffold.BaseScaffold
 import com.thoughtworks.composetemplate.ui.theme.ComposeTemplateTheme
 
@@ -14,8 +15,12 @@ import com.thoughtworks.composetemplate.ui.theme.ComposeTemplateTheme
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
-    BaseScaffold() {
-        Greeting(viewModel.name)
+    val devMenu = LocalDevMenu.current
+
+    devMenu.ScreenContainer {
+        BaseScaffold() {
+            Greeting(viewModel.name)
+        }
     }
 }
 
