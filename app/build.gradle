@@ -5,6 +5,8 @@ plugins {
     id 'com.google.dagger.hilt.android'
 }
 
+apply from: '../code_coverage.gradle'
+
 android {
     namespace 'com.thoughtworks.composetemplate'
     compileSdk project.compileSdkVersion
@@ -48,6 +50,12 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+
+//    copy {
+//        from '../githooks'
+//        into '../.git/hooks'
+//        fileMode 0755
+//    }
 }
 
 dependencies {

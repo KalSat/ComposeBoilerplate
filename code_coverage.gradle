@@ -1,0 +1,38 @@
+apply plugin: 'org.jetbrains.kotlinx.kover'
+
+kover {
+    excludeInstrumentation {
+        classes('okhttp3.*')
+    }
+}
+
+koverReport {
+    filters {
+        excludes {
+            classes(
+                    '*.BuildConfig',
+                    '*.Constants*',
+                    '*.Hilt_*',
+                    '*.*_HiltModules*',
+                    '*.*_Factory*',
+                    '*.ComposableSingleton*',
+            )
+            packages(
+                    'hilt_aggregated_deps.*',
+                    'dagger.hilt.*',
+            )
+            annotatedBy(
+                    '*Generated*',
+                    '*Composable*',
+            )
+        }
+    }
+
+    androidReports('debug') {
+        verify {
+            rule {
+                minBound(0)
+            }
+        }
+    }
+}
