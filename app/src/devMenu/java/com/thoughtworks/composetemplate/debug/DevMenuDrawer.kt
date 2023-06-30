@@ -46,5 +46,9 @@ fun DevMenuDrawer() {
         TextButton(onClick = { navController.navigate(Routes.ANIMALS) }) {
             Text(text = "Animal", fontSize = FontSize.S)
         }
+
+        TextButton(onClick = { navController.navigate(DevMenuRoutes.TEST) }) {
+            Text(text = "Test", fontSize = FontSize.S)
+        }
     }
 }

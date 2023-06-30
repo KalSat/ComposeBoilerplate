@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.thoughtworks.composetemplate.screen.animals.AnimalsScreen
 import com.thoughtworks.composetemplate.screen.home.HomeScreen
+import com.thoughtworks.composetemplate.ui.compose.meta.LocalDevMenu
 
 const val FIRST_SCREEN = Routes.HOME
 
@@ -19,6 +20,8 @@ fun NavigationGraph(
     navHostController: NavHostController,
     startDestination: String,
 ) {
+    val devMenu = LocalDevMenu.current
+
     NavHost(
         navController = navHostController,
         startDestination = startDestination
@@ -31,5 +34,9 @@ fun NavigationGraph(
             route = Routes.ANIMALS,
             content = @Composable { AnimalsScreen() },
         )
+
+        if (BuildConfig.ADD_DEV_MENU) {
+            devMenu.navGraphBuilder(this)
+        }
     }
 }
