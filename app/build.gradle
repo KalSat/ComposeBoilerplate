@@ -1,3 +1,5 @@
+import org.yaml.snakeyaml.Yaml
+
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
@@ -6,6 +8,7 @@ plugins {
 }
 
 apply from: '../code_coverage.gradle'
+apply from: '../build_config.gradle'
 
 android {
     namespace 'com.thoughtworks.composetemplate'
@@ -28,10 +31,32 @@ android {
     }
 
     buildTypes {
-        release {
+        debug {
+            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
                     'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
+                    'proguard-rules.pro'
+        }
+        dev {
+            initWith debug
+            versionNameSuffix "-dev"
+        }
+        qa {
+            initWith release
+            debuggable true
+            versionNameSuffix "-test"
+        }
+        stage {
+            initWith release
+            versionNameSuffix "-stage"
+        }
+        prod {
+            initWith release
         }
     }
     compileOptions {
@@ -68,6 +93,12 @@ android {
             if (gradle.ext.addDevMenu) {
                 java.srcDirs += 'src/devMenu/java'
             }
+        }
+    }
+    applicationVariants.all { variant ->
+        def configs = loadConfigByBuildVariant(variant) { return new Yaml() }
+        configs.each { config ->
+            variant.buildConfigField config['type'], config['name'], config['value']
         }
     }
 

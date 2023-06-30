@@ -1,0 +1,65 @@
+def loadConfigByBuildVariant(variant, snakeyaml) {
+    def buildConfigMap = new HashMap()
+    buildConfigMap.merge(loadConfigFromYaml('defalut', snakeyaml))
+    // load config for build type
+    def buildType = variant.buildType.name
+//    if (buildType == 'debug') {
+//        buildType = 'dev'
+//    } else if (buildType == 'release') {
+//        buildType = 'prod'
+//    }
+    buildConfigMap.merge(loadConfigFromYaml(buildType, snakeyaml))
+    def productFlavors = variant.productFlavors
+    // load config for each flavor
+    productFlavors.each { flavor ->
+        buildConfigMap.merge(loadConfigFromYaml(flavor.name, snakeyaml))
+    }
+    // load config for flavors
+    if (productFlavors.size() > 1) {
+        buildConfigMap.merge(loadConfigFromYaml(variant.flavorName, snakeyaml))
+    }
+    // load config for variants
+    buildConfigMap.merge(loadConfigFromYaml(variant.name, snakeyaml))
+
+    return buildConfigMap.values()
+}
+
+HashMap.metaClass.merge = { configs ->
+    configs.each { config ->
+        delegate[config['name']] = config
+    }
+}
+
+def loadConfigFromYaml(String fileName, snakeyaml) {
+    def file = rootProject.file("config/${fileName}.yml")
+    if (!file.exists()) {
+        return []
+    }
+
+    def yaml = snakeyaml().load(file.newInputStream())
+    def buildConfigs = yaml['buildConfig']
+
+    if (buildConfigs == null) {
+        return []
+    }
+
+    return buildConfigs.collect {
+        def value = it['value'].toString()
+
+        if (it['type'] == 'String') {
+            value = "\"${value}\""
+        } else if (it['type'] == 'String[]') {
+            def arrayStr = it['value']
+                    .collect { item -> "\"${item}\"" }
+                    .join(', ')
+
+            value = "{${arrayStr}}"
+        }
+
+        return [type: it['type'], name: it['name'], value: value]
+    }
+}
+
+ext { // export
+    loadConfigByBuildVariant = this.&loadConfigByBuildVariant
+}

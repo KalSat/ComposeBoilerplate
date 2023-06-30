@@ -5,6 +5,7 @@ buildscript {
         agpVersion = '8.0.1'
         kotlinVersion = '1.7.20'
         spotlessVersion = '6.18.0'
+        snakeyamlVersion = '1.32'
 
         // android.defaultConfig
         compileSdkVersion = 33
@@ -43,6 +44,9 @@ buildscript {
         robolectricVersion = '4.9.2'
         testCoreVersion = '1.5.0'
         koverVersion = '0.7.2'
+    }
+    dependencies {
+        classpath "org.yaml:snakeyaml:$snakeyamlVersion"
     }
 }
 

@@ -1,0 +1,5 @@
+---
+buildConfig:
+  - type: String
+    name: ENVIRONMENT
+    value: "prod"
