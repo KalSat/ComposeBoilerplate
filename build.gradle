@@ -2,9 +2,9 @@
 buildscript {
     ext {
         // android.defaultConfig
-        compileSdkVersion = 33
+        compileSdkVersion = 34
         minSdkVersion = 24
-        targetSdkVersion = 33
+        targetSdkVersion = 34
     }
     dependencies {
         classpath libs.snakeyaml
