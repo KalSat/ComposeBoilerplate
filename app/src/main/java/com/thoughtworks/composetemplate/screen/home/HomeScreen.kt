@@ -1,6 +1,5 @@
 package com.thoughtworks.composetemplate.screen.home
 
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -10,7 +9,6 @@ import com.thoughtworks.composetemplate.ui.compose.meta.LocalDevMenu
 import com.thoughtworks.composetemplate.ui.compose.scaffold.BaseScaffold
 import com.thoughtworks.composetemplate.ui.theme.ComposeTemplateTheme
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel()

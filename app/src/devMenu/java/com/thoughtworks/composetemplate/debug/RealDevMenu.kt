@@ -1,6 +1,5 @@
 package com.thoughtworks.composetemplate.debug
 
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavGraphBuilder
@@ -14,7 +13,6 @@ object DevMenuRoutes {
 }
 
 @Suppress("unused")
-@OptIn(ExperimentalMaterial3Api::class)
 class RealDevMenu : DevMenu {
 
     @Composable
