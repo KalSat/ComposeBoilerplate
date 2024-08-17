@@ -12,12 +12,12 @@ apply from: '../build_config.gradle'
 
 android {
     namespace 'com.thoughtworks.composetemplate'
-    compileSdk project.compileSdkVersion
+    compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {
         applicationId "com.thoughtworks.composetemplate"
-        minSdk project.minSdkVersion
-        targetSdk project.targetSdkVersion
+        minSdk libs.versions.minSdk.get().toInteger()
+        targetSdk libs.versions.targetSdk.get().toInteger()
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
@@ -70,13 +70,13 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.5.1'
+        kotlinCompilerExtensionVersion libs.versions.kotlinCompilerExtension.get()
     }
     packaging {
         resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
-            merges += "META-INF/LICENSE.md"
-            merges += "META-INF/LICENSE-notice.md"
+            it.excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            it.merges += 'META-INF/LICENSE.md'
+            it.merges += 'META-INF/LICENSE-notice.md'
         }
     }
     testOptions {
@@ -97,7 +97,7 @@ android {
             }
         }
     }
-    applicationVariants.all { variant ->
+    applicationVariants.configureEach { variant ->
         def configs = loadConfigByBuildVariant(variant) { return new Yaml() }
         configs.each { config ->
             variant.buildConfigField config['type'], config['name'], config['value']

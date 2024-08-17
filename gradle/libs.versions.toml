@@ -4,31 +4,36 @@ agp = "8.5.2"
 kotlin = "1.9.0"
 spotless = "6.18.0"
 snakeyaml = "1.32"
+# android config
+compileSdk = "34"
+minSdk = "24"
+targetSdk = "34"
+kotlinCompilerExtension = "1.5.1"
 # foundation
 multidex = '2.0.1'
 coreKtx = "1.13.1"
 lifecycleRuntimeKtx = "2.8.4"
 lifecycleViewmodelCompose = '2.8.4'
-kotlinStdlib = '1.9.20'
-coroutines = '1.7.3'
+kotlinStdlib = '1.9.25'
+coroutines = '1.8.1'
 # compose
 activityCompose = "1.9.1"
 navigationCompose = '2.7.7'
 composeBom = "2024.06.00"
-coilCompose = '2.1.0'
+coilCompose = '2.7.0'
 # di
-hilt = '2.49'
+hilt = '2.52'
 hiltNavigationCompose = '1.2.0'
 # network
-okhttp = '4.11.0'
+okhttp = '4.12.0'
 retrofit = '2.11.0'
 gson = '2.11.0'
 # test
 junit = "4.13.2"
 androidxJunit = "1.2.1"
 espressoCore = "3.6.1"
-mockk = '1.13.5'
-assertj = '3.24.2'
+mockk = '1.13.12'
+assertj = '3.26.3'
 robolectric = '4.13'
 testCore = '1.6.1'
 kover = '0.7.2'
@@ -84,6 +89,7 @@ androidx-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
 androidx-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 
 [plugins]
+# https://plugins.gradle.org/
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
