@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ComposeTemplate</string>
+    <string name="app_name">Compose Boilerplate</string>
     <string name="loading">Loading…</string>
     <string name="retry">Retry</string>
     <string name="connection_error_title">Connection Error</string>

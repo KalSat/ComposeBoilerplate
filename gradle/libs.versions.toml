@@ -1,7 +1,8 @@
 [versions]
 # plugins
 agp = "8.5.2"
-kotlin = "1.9.0"
+kotlin = "2.0.10"
+ksp = "2.0.10-1.0.24"
 spotless = "6.18.0"
 snakeyaml = "1.32"
 # android config
@@ -14,7 +15,7 @@ multidex = '2.0.1'
 coreKtx = "1.13.1"
 lifecycleRuntimeKtx = "2.8.4"
 lifecycleViewmodelCompose = '2.8.4'
-kotlinStdlib = '1.9.25'
+kotlinStdlib = '2.0.10'
 coroutines = '1.8.1'
 # compose
 activityCompose = "1.9.1"
@@ -93,7 +94,8 @@ androidx-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-jetbrains-kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }

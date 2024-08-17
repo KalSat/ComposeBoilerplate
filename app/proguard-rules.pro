@@ -20,4 +20,4 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 
--keep class com.thoughtworks.composetemplate.debug.RealDevMenu
+-keep class com.thoughtworks.boilerplate.debug.RealDevMenu

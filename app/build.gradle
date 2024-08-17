@@ -3,7 +3,8 @@ import org.yaml.snakeyaml.Yaml
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.jetbrains.kotlin.kapt)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
 }
 
@@ -11,11 +12,11 @@ apply from: '../code_coverage.gradle'
 apply from: '../build_config.gradle'
 
 android {
-    namespace 'com.thoughtworks.composetemplate'
+    namespace 'com.thoughtworks.boilerplate'
     compileSdk libs.versions.compileSdk.get().toInteger()
 
     defaultConfig {
-        applicationId "com.thoughtworks.composetemplate"
+        applicationId "com.thoughtworks.boilerplate"
         minSdk libs.versions.minSdk.get().toInteger()
         targetSdk libs.versions.targetSdk.get().toInteger()
         versionCode 1
@@ -93,7 +94,7 @@ android {
     sourceSets {
         main {
             if (gradle.ext.addDevMenu) {
-                java.srcDirs += 'src/devMenu/java'
+                kotlin.srcDirs += 'src/devMenu/kotlin'
             }
         }
     }
@@ -134,7 +135,7 @@ dependencies {
     implementation libs.androidx.material.icons.extended
     implementation libs.coil.compose
     // di
-    kapt libs.hilt.compiler
+    ksp libs.hilt.compiler
     implementation libs.hilt.android
     implementation libs.hilt.navigation.compose
     // network
