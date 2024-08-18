@@ -5,11 +5,11 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import com.thoughtworks.boilerplate.BuildConfig
 import com.thoughtworks.boilerplate.common.devmenu.DevMenu
 import com.thoughtworks.boilerplate.common.devmenu.dummyDevMenu
-import com.thoughtworks.boilerplate.common.di.dummyNavController
+import com.thoughtworks.boilerplate.common.utils.sDummyNavController
 import com.thoughtworks.boilerplate.ui.theme.AppColorPalette
 import kotlin.properties.Delegates
 
-val LocalNavController = staticCompositionLocalOf { dummyNavController }
+val LocalNavController = staticCompositionLocalOf { sDummyNavController }
 
 private val dummyActivity by Delegates.notNull<Activity>()
 val LocalActivity = staticCompositionLocalOf { dummyActivity }

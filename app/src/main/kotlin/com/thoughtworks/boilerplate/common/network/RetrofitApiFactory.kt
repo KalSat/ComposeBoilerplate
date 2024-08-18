@@ -1,15 +1,14 @@
 package com.thoughtworks.boilerplate.common.network
 
-import javax.inject.Inject
-import javax.inject.Singleton
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 private const val defaultBaseUrl = "https://thoughtworks-mobile-2018.herokuapp.com/"
+val sRetrofitApiFactory = RetrofitApiFactory()
 
-@Singleton
-class RetrofitApiFactory @Inject constructor(
-    private val httpClientProvider: HttpClientProvider,
+class RetrofitApiFactory constructor(
+    private val httpClient: OkHttpClient = sHttpClient,
 ) {
     private val clientMap: MutableMap<String, Retrofit> = mutableMapOf()
 
@@ -28,7 +27,7 @@ class RetrofitApiFactory @Inject constructor(
     private fun createRetrofit(baseUrl: String): Retrofit {
         return Retrofit.Builder()
             .baseUrl(baseUrl)
-            .client(httpClientProvider.get())
+            .client(httpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

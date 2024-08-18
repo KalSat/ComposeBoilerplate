@@ -2,7 +2,6 @@
 # plugins
 agp = "8.5.2"
 kotlin = "2.0.10"
-ksp = "2.0.10-1.0.24"
 spotless = "6.18.0"
 snakeyaml = "1.32"
 # android config
@@ -22,9 +21,6 @@ activityCompose = "1.9.1"
 navigationCompose = '2.7.7'
 composeBom = "2024.06.00"
 coilCompose = '2.7.0'
-# di
-hilt = '2.52'
-hiltNavigationCompose = '1.2.0'
 # network
 okhttp = '4.12.0'
 retrofit = '2.11.0'
@@ -63,10 +59,6 @@ androidx-animation = { module = "androidx.compose.animation:animation" }
 androidx-material-icons-core = { module = "androidx.compose.material:material-icons-core" }
 androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
-# di
-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 # network
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
 okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
@@ -95,7 +87,5 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }

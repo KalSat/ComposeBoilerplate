@@ -1,4 +1,4 @@
-package com.thoughtworks.boilerplate.common.di
+package com.thoughtworks.boilerplate.common.utils
 
 import android.annotation.SuppressLint
 import android.app.Application
@@ -11,17 +11,11 @@ import androidx.navigation.NavController
 import androidx.navigation.NavDeepLinkRequest
 import androidx.navigation.NavOptions
 import androidx.navigation.Navigator
-import dagger.hilt.android.scopes.ActivityScoped
 import java.io.PrintWriter
 import java.io.StringWriter
-import javax.inject.Inject
 
 @SuppressLint("StaticFieldLeak")
-val dummyNavController: NavController = DummyNavController(Application())
-
-@ActivityScoped
-class NavControllerProvider @Inject constructor() :
-    MutableProvider<NavController>(dummyNavController)
+val sDummyNavController: NavController = DummyNavController(Application())
 
 private class DummyNavController(context: Context) : NavController(context) {
 

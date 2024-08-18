@@ -11,7 +11,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.thoughtworks.boilerplate.R
 import com.thoughtworks.boilerplate.common.asyncLoader.AsyncLoadProcessor
@@ -20,7 +20,7 @@ import com.thoughtworks.boilerplate.ui.compose.scaffold.BaseScaffold
 
 @Composable
 fun AnimalsScreen(
-    animalsViewModel: AnimalsViewModel = hiltViewModel(),
+    animalsViewModel: AnimalsViewModel = viewModel { AnimalsViewModel() },
 ) {
     BaseScaffold(title = stringResource(R.string.screen_title_animals)) {
         AsyncLoadProcessor(

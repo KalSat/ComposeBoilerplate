@@ -22,19 +22,15 @@ com.package.name # Android代码根目录
 
 [navigation-compose]
 
-### 1.4 依赖注入
-
-[Hilt]
-
-### 1.5 网络库
+### 1.4 网络库
 
 [okhttp] + [retrofit]
 
-### 1.6 持久化
+### 1.5 持久化
 
 > TODO
 
-### 1.7 对页面异步加载的一个封装
+### 1.6 对页面异步加载的一个封装
 
 这部分代码在`common/asyncLoader`中，其目标是让页面不必处理异步加载的逻辑，只需要关注数据成功加载后的UI渲染即可。
 `AsyncLoadProcessor`负责异步加载的UI渲染，它会根据`LoadState`的状态来显示不同的UI，`LoadState`
