@@ -5,35 +5,34 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
 import com.thoughtworks.boilerplate.R
-import com.thoughtworks.boilerplate.common.asyncLoader.AsyncLoadProcessor
-import com.thoughtworks.boilerplate.common.asyncLoader.AutoLoadViewModel
+import com.thoughtworks.boilerplate.common.components.querying.QueryWrapper
 import com.thoughtworks.boilerplate.common.components.scaffold.BaseScaffold
+import com.thoughtworks.boilerplate.common.composequery.useQuery
+import com.thoughtworks.boilerplate.data.model.Animal
 
 @Composable
 fun AnimalsScreen(
-    animalsViewModel: AnimalsViewModel = viewModel { AnimalsViewModel() },
+    repository: AnimalRepository = AnimalRepository(),
 ) {
+    val result = useQuery(arrayOf("animals"), repository::getAnimals)
+
     BaseScaffold(title = stringResource(R.string.screen_title_animals)) {
-        AsyncLoadProcessor(
-            remember { AutoLoadViewModel(animalsViewModel) }
-        ) {
-            AnimalsContent(animalsViewModel)
+        QueryWrapper(result) { data ->
+            AnimalsContent(data)
         }
     }
 }
 
 @Composable
 fun AnimalsContent(
-    viewModel: AnimalsViewModel,
+    animals: List<Animal>,
 ) {
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
     val columns = 3
@@ -41,7 +40,7 @@ fun AnimalsContent(
     LazyVerticalGrid(
         columns = GridCells.Fixed(columns)
     ) {
-        items(items = viewModel.data) { animal ->
+        items(items = animals) { animal ->
             AsyncImage(
                 modifier = Modifier.size(screenWidth / columns),
                 model = animal.url,

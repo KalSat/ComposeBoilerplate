@@ -1,4 +1,4 @@
-package com.thoughtworks.boilerplate.common.asyncLoader
+package com.thoughtworks.boilerplate.common.components.querying
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
