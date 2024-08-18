@@ -15,8 +15,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import com.thoughtworks.boilerplate.R
-import com.thoughtworks.boilerplate.ui.theme.EdgeInset
-import com.thoughtworks.boilerplate.ui.theme.Size
+import com.thoughtworks.boilerplate.common.theme.EdgeInset
+import com.thoughtworks.boilerplate.common.theme.Size
 
 @Composable
 fun LoadingPlaceholder(modifier: Modifier = Modifier) {

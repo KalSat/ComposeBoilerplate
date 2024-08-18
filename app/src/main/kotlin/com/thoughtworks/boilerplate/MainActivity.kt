@@ -4,7 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.CompositionLocalProvider
-import com.thoughtworks.boilerplate.ui.compose.meta.LocalActivity
+import com.thoughtworks.boilerplate.common.navigation.FIRST_SCREEN
+import com.thoughtworks.boilerplate.common.utils.LocalActivity
 
 class MainActivity : ComponentActivity() {
 

@@ -6,8 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import com.thoughtworks.boilerplate.ui.theme.BorderShape
-import com.thoughtworks.boilerplate.ui.theme.Size
+import com.thoughtworks.boilerplate.common.theme.BorderShape
+import com.thoughtworks.boilerplate.common.theme.Size
 
 @Composable
 fun LoadingPopup(onBackPressed: () -> Unit) {

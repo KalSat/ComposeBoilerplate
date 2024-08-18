@@ -18,8 +18,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import com.thoughtworks.boilerplate.R
-import com.thoughtworks.boilerplate.ui.theme.EdgeInset
-import com.thoughtworks.boilerplate.ui.theme.Size
+import com.thoughtworks.boilerplate.common.theme.EdgeInset
+import com.thoughtworks.boilerplate.common.theme.Size
 
 enum class ErrorType(
     val title: Int,
