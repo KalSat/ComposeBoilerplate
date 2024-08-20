@@ -80,6 +80,16 @@ kotlin {
                 implementation libs.ktor.client.java
             }
         }
+        desktopTest {
+            dependencies {
+                implementation libs.kotlin.test
+                implementation libs.kotlinx.coroutines.test
+                implementation libs.mockk
+                implementation libs.kotest.assertions
+                implementation compose.desktop.uiTestJUnit4
+                implementation compose.desktop.currentOs
+            }
+        }
     }
 }
 
