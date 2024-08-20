@@ -18,6 +18,7 @@ jetbrains-navigation = '2.8.0-alpha08'
 # network
 ktor = "2.3.12"
 kotlinx-serialization = "1.7.1"
+coil = "3.0.0-alpha10"
 # test
 junit = "4.13.2"
 androidxJunit = "1.2.1"
@@ -45,6 +46,9 @@ ktor-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version
 ktor-json = { module = "io.ktor:ktor-serialization-kotlinx-json", version.ref = "ktor" }
 ktor-encoding = { module = "io.ktor:ktor-client-encoding", version.ref = "ktor" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
+coil = { module = "io.coil-kt.coil3:coil", version.ref = "coil" }
+coil-ktor = { module = "io.coil-kt.coil3:coil-network-ktor2", version.ref = "coil" }
+coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 # test
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }

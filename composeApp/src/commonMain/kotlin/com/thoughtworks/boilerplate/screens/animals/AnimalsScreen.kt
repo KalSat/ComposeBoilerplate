@@ -1,11 +1,14 @@
 package com.thoughtworks.boilerplate.screens.animals
 
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import coil3.compose.AsyncImage
 import com.thoughtworks.boilerplate.common.components.querying.QueryWrapper
 import com.thoughtworks.boilerplate.common.components.scaffold.BaseScaffold
 import com.thoughtworks.boilerplate.common.composequery.useQuery
@@ -31,20 +34,16 @@ fun AnimalsScreen(
 fun AnimalsContent(
     animals: List<Animal>,
 ) {
-    val screenWidth = 360.dp
-    val columns = 3
-
     LazyVerticalGrid(
-        columns = GridCells.Fixed(columns)
+        columns = GridCells.Fixed(3)
     ) {
         items(items = animals) { animal ->
-//            AsyncImage(
-//                modifier = Modifier.size(screenWidth / columns),
-//                model = animal.url,
-//                contentDescription = null,
-//                contentScale = ContentScale.Crop,
-//            )
-            Text(text = animal.url)
+            AsyncImage(
+                modifier = Modifier.aspectRatio(ratio = 1f).fillMaxWidth(),
+                model = animal.url,
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+            )
         }
     }
 }
