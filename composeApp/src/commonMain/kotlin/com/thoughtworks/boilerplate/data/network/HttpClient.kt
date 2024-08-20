@@ -1,6 +1,7 @@
 package com.thoughtworks.boilerplate.data.network
 
 import com.thoughtworks.boilerplate.createHttpClient
+import io.github.aakira.napier.Napier
 import io.ktor.client.plugins.Charsets
 import io.ktor.client.plugins.HttpTimeout
 import io.ktor.client.plugins.compression.ContentEncoding
@@ -37,7 +38,7 @@ val httpClient = createHttpClient() {
     install(Logging) {
         logger = object : Logger {
             override fun log(message: String) {
-                println("HTTP Client: $message")
+                Napier.d(message, null, "<--HTTP-->")
             }
         }
         level = LogLevel.ALL
