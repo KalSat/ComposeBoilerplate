@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.thoughtworks.boilerplate.common.utils.LocalDevMenu
+import com.thoughtworks.boilerplate.screens.animals.AnimalsScreen
 import com.thoughtworks.boilerplate.screens.home.HomeScreen
 
 const val FIRST_SCREEN = Routes.HOME
@@ -28,6 +29,11 @@ fun NavigationGraph(
         composable(
             route = Routes.HOME,
             content = @Composable { HomeScreen() },
+        )
+
+        composable(
+            route = Routes.ANIMALS,
+            content = @Composable { AnimalsScreen() },
         )
 
         if (/*BuildConfig.ADD_DEV_MENU*/true) {

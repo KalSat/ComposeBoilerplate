@@ -46,6 +46,10 @@ kotlin {
                 implementation libs.jetbrains.navigation.compose
                 // network
                 implementation libs.ktor.client.core
+                implementation libs.ktor.logging
+                implementation libs.ktor.negotiation
+                implementation libs.ktor.json
+                implementation libs.ktor.encoding
                 implementation libs.kotlinx.serialization.json
             }
         }
