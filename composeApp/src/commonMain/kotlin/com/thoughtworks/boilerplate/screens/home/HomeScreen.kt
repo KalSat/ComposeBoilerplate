@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.thoughtworks.boilerplate.common.components.scaffold.BaseScaffold
 import com.thoughtworks.boilerplate.common.theme.ComposeBoilerplateTheme
-import com.thoughtworks.boilerplate.common.utils.LocalDevMenu
+import com.thoughtworks.boilerplate.devmenu.DevMenuDrawerContainer
 import composeboilerplate.composeapp.generated.resources.Res
 import composeboilerplate.composeapp.generated.resources.compose_multiplatform
 import org.jetbrains.compose.resources.painterResource
@@ -26,9 +26,7 @@ import org.jetbrains.compose.ui.tooling.preview.Preview
 fun HomeScreen(
     homeViewModel: HomeViewModel = viewModel { HomeViewModel() },
 ) {
-    val devMenu = LocalDevMenu.current
-
-    devMenu.ScreenContainer {
+    DevMenuDrawerContainer {
         BaseScaffold() {
             var showContent by remember { mutableStateOf(false) }
             Column(Modifier.fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {

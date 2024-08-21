@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.thoughtworks.boilerplate.common.utils.LocalDevMenu
+import com.thoughtworks.boilerplate.devmenu.devMenuNavGraphBuilder
 import com.thoughtworks.boilerplate.screens.animals.AnimalsScreen
 import com.thoughtworks.boilerplate.screens.home.HomeScreen
 
@@ -20,8 +20,6 @@ fun NavigationGraph(
     navHostController: NavHostController,
     startDestination: String,
 ) {
-    val devMenu = LocalDevMenu.current
-
     NavHost(
         navController = navHostController,
         startDestination = startDestination
@@ -36,8 +34,6 @@ fun NavigationGraph(
             content = @Composable { AnimalsScreen() },
         )
 
-        if (/*BuildConfig.ADD_DEV_MENU*/true) {
-            devMenu.navGraphBuilder(this)
-        }
+        devMenuNavGraphBuilder()
     }
 }

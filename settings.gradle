@@ -22,3 +22,16 @@ dependencyResolutionManagement {
 rootProject.name = "ComposeBoilerplate"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include ":composeApp"
+
+def addDevMenu = false
+// read properties from local.properties
+def lpFile = new File(getRootDir(), 'local.properties')
+if (lpFile.exists()) {
+    Properties properties = new Properties()
+    properties.load(lpFile.newDataInputStream())
+    if (properties.containsKey('addDevMenu')) {
+        addDevMenu = properties.getProperty('addDevMenu').toBoolean()
+    }
+}
+gradle.ext.addDevMenu = addDevMenu
+println "addDevMenu: $addDevMenu"

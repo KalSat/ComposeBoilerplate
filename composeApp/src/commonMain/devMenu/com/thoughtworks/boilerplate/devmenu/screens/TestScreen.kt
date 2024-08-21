@@ -1,4 +1,4 @@
-package com.thoughtworks.boilerplate.debug.screens
+package com.thoughtworks.boilerplate.devmenu.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

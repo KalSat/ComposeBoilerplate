@@ -1,4 +1,4 @@
-package com.thoughtworks.boilerplate.debug
+package com.thoughtworks.boilerplate.devmenu
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
