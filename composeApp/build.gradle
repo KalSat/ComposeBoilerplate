@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.serialization)
 }
+apply plugin: libs.mockposable.plugin.get().module.group
 
 kotlin {
     androidTarget {
@@ -91,6 +92,7 @@ kotlin {
                 implementation libs.kotest.assertions
                 implementation compose.desktop.uiTestJUnit4
                 implementation compose.desktop.currentOs
+                implementation libs.mockposable.mockk
             }
         }
     }
@@ -164,4 +166,8 @@ compose.desktop {
             packageVersion = "1.0.0"
         }
     }
+}
+
+mockposable {
+    plugins = ['mockk']
 }

@@ -21,8 +21,9 @@ ktor = "2.3.12"
 kotlinx-serialization = "1.7.1"
 coil = "3.0.0-alpha10"
 # test
-mockk = "1.12.5"
+mockk = "1.13.12"
 kotest = "5.9.1"
+mockposable = "0.9"
 
 [libraries]
 # foundation
@@ -55,6 +56,8 @@ kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotl
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 kotest-assertions = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+mockposable-plugin = { module = "com.jeppeman.mockposable:mockposable-gradle", version.ref = "mockposable" }
+mockposable-mockk = { module = "com.jeppeman.mockposable:mockposable-runtime-mockk", version.ref = "mockposable" }
 
 [plugins]
 # https://plugins.gradle.org/
