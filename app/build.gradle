@@ -3,9 +3,8 @@ plugins {
 //    alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     id 'code-coverage'
+    id 'build-config'
 }
-
-//apply from: '../build_config.gradle'
 
 android {
     namespace = 'com.thoughtworks.boilerplate'
@@ -96,19 +95,13 @@ android {
             }
         }
     }
-//    applicationVariants.configureEach { variant ->
-//        def configs = loadConfigByBuildVariant(variant) { return new Yaml() }
-//        configs.each { config ->
-//            variant.buildConfigField config['type'], config['name'], config['value']
-//        }
-//    }
+}
 
 //    copy {
 //        from '../githooks'
 //        into '../.git/hooks'
 //        fileMode 0755
 //    }
-}
 
 dependencies {
     // foundation

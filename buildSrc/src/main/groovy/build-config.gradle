@@ -1,0 +1,82 @@
+import org.yaml.snakeyaml.Yaml
+
+HashMap.metaClass.merge = { configs ->
+    configs.each { config ->
+        delegate[config['name']] = config
+    }
+}
+
+def loadConfigByBuildVariant(variant) {
+    def buildConfigMap = new HashMap()
+    buildConfigMap.merge(loadConfigFromYaml('defalut'))
+    // load config for build type
+    def buildType = variant.buildType ?: ''
+    buildConfigMap.merge(loadConfigFromYaml(buildType))
+    def productFlavors = variant.productFlavors
+    // load config for each flavor
+    // productFlavors is List<Pair<String, String>> (dimension, flavorName)
+    productFlavors.each { pair ->
+        //noinspection GroovyUnusedAssignment
+        def (dimension, flavorName) = pair
+        buildConfigMap.merge(loadConfigFromYaml(flavorName))
+    }
+    // load config for flavors
+    if (productFlavors.size() > 1) {
+        buildConfigMap.merge(loadConfigFromYaml(variant.flavorName))
+    }
+    // load config for variants
+    buildConfigMap.merge(loadConfigFromYaml(variant.name))
+
+    return buildConfigMap.values()
+}
+
+def loadConfigFromYaml(String fileName) {
+    def file = rootProject.file("config/${fileName}.yml")
+    if (!file.exists()) {
+        return []
+    }
+
+    def yaml = new Yaml().load(file.newInputStream())
+    def buildConfigs = yaml['buildConfig']
+
+    if (buildConfigs == null) {
+        return []
+    }
+
+    return buildConfigs.collect {
+        def value = it['value'].toString()
+
+        if (it['type'] == 'String') {
+            value = "\"${value}\""
+        } else if (it['type'] == 'String[]') {
+            def arrayStr = it['value']
+                .collect { item -> "\"${item}\"" }
+                .join(', ')
+
+            value = "{${arrayStr}}"
+        }
+
+        return [type: it['type'], name: it['name'], value: value]
+    }
+}
+
+def applyBuildConfigVariants = {
+    def buildConfigFieldClass =
+        project.buildscript.classLoader.loadClass('com.android.build.api.variant.BuildConfigField')
+    def ctor =
+        buildConfigFieldClass.getDeclaredConstructor(String, Serializable, String)
+    androidComponents {
+        onVariants(selector().all()) { variant ->
+            def configs = loadConfigByBuildVariant(variant)
+            configs.each { config ->
+                variant.buildConfigFields.put(
+                    config['name'],
+                    ctor.newInstance(config['type'], config['value'], null)
+                )
+            }
+        }
+    }
+}
+
+pluginManager.withPlugin('com.android.application') { applyBuildConfigVariants() }
+pluginManager.withPlugin('com.android.library') { applyBuildConfigVariants() }

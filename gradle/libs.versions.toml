@@ -3,7 +3,6 @@
 agp = "9.2.1"
 kotlin = "2.2.10"
 spotless = "8.6.0"
-snakeyaml = "1.32"
 # android config
 compileSdk = "36"
 minSdk = "32"
@@ -36,8 +35,6 @@ kover = '0.9.8'
 
 
 [libraries]
-# buildscript
-snakeyaml = { module = "org.yaml:snakeyaml", version.ref = "snakeyaml" }
 # foundation
 androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
 androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }

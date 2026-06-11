@@ -5,3 +5,8 @@ plugins {
 repositories {
     mavenCentral()
 }
+
+dependencies {
+    //noinspection UseTomlInstead
+    implementation 'org.yaml:snakeyaml:2.6'
+}
