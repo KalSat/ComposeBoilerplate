@@ -7,8 +7,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.thoughtworks.boilerplate.common.components.scaffold.BaseScaffold
-import com.thoughtworks.boilerplate.common.theme.FontSize
+import com.thoughtworks.boilerplate.components.scaffold.BaseScaffold
+import com.thoughtworks.boilerplate.theme.FontSize
 
 @Composable
 fun TestScreen() {

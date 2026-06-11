@@ -16,10 +16,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import com.thoughtworks.boilerplate.BuildConfig
-import com.thoughtworks.boilerplate.common.navigation.Routes
-import com.thoughtworks.boilerplate.common.theme.EdgeInset
-import com.thoughtworks.boilerplate.common.theme.FontSize
-import com.thoughtworks.boilerplate.common.utils.LocalNavController
+import com.thoughtworks.boilerplate.Routes
+import com.thoughtworks.boilerplate.theme.EdgeInset
+import com.thoughtworks.boilerplate.theme.FontSize
+import com.thoughtworks.boilerplate.utils.LocalNavController
 
 @Composable
 fun DevMenuDrawer() {
