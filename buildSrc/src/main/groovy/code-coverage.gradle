@@ -1,0 +1,47 @@
+plugins {
+    id 'org.jetbrains.kotlinx.kover'
+}
+
+kover {
+    reports {
+        // filters for all report types of all build variants
+        filters {
+            excludes {
+                androidGeneratedClasses()
+                classes('okhttp3.*')
+            }
+        }
+
+        variant("debug") {
+            // filters for all report types only of 'debug' build type
+            filters {
+                excludes {
+                    androidGeneratedClasses()
+
+                    classes(
+                        '*.BuildConfig',
+                        '*.Constants*',
+                        '*.Hilt_*',
+                        '*.*_HiltModules*',
+                        '*.*_Factory*',
+                        '*.ComposableSingleton*',
+                    )
+                    packages(
+                        'hilt_aggregated_deps.*',
+                        'dagger.hilt.*',
+                    )
+                    annotatedBy(
+                        '*Generated*',
+                        '*Composable*',
+                    )
+                }
+            }
+
+            verify {
+                rule {
+                    minBound(9) // coverage percentage
+                }
+            }
+        }
+    }
+}
