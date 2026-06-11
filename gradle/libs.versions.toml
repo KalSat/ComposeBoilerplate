@@ -10,20 +10,20 @@ minSdk = "32"
 targetSdk = "36"
 kotlinCompilerExtension = "1.5.1"
 # foundation
-coreKtx = "1.13.1"
-lifecycleRuntimeKtx = "2.8.4"
-lifecycleViewmodelCompose = '2.8.4'
-kotlinStdlib = '2.0.10'
-coroutines = '1.8.1'
+coreKtx = "1.18.0"
+lifecycleRuntimeKtx = "2.10.0"
+lifecycleViewmodelCompose = '2.10.0'
+kotlinStdlib = '2.2.10'
+coroutines = '1.11.0'
 # compose
-activityCompose = "1.9.1"
-navigationCompose = '2.7.7'
+activityCompose = "1.13.0"
+navigationCompose = '2.9.8'
 composeBom = "2026.02.01"
 coilCompose = '2.7.0'
 # network
-okhttp = '4.12.0'
-retrofit = '2.11.0'
-gson = '2.11.0'
+okhttp = '5.4.0'
+retrofit = '3.0.0'
+gson = '2.14.0'
 # test
 junit = "4.13.2"
 androidxJunit = "1.3.0"
