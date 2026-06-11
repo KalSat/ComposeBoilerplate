@@ -1,13 +1,13 @@
 [versions]
 # plugins
-agp = "8.5.2"
-kotlin = "2.0.10"
-spotless = "6.18.0"
+agp = "9.2.1"
+kotlin = "2.2.10"
+spotless = "8.6.0"
 snakeyaml = "1.32"
 # android config
-compileSdk = "34"
-minSdk = "24"
-targetSdk = "34"
+compileSdk = "36"
+minSdk = "32"
+targetSdk = "36"
 kotlinCompilerExtension = "1.5.1"
 # foundation
 multidex = '2.0.1'
@@ -19,7 +19,7 @@ coroutines = '1.8.1'
 # compose
 activityCompose = "1.9.1"
 navigationCompose = '2.7.7'
-composeBom = "2024.06.00"
+composeBom = "2026.02.01"
 coilCompose = '2.7.0'
 # network
 okhttp = '4.12.0'
@@ -85,7 +85,7 @@ androidx-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 # https://plugins.gradle.org/
 android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
 kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
