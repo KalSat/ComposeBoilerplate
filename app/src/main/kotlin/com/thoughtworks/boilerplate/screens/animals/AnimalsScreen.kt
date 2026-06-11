@@ -18,9 +18,7 @@ import com.thoughtworks.boilerplate.common.composequery.useQuery
 import com.thoughtworks.boilerplate.data.model.Animal
 
 @Composable
-fun AnimalsScreen(
-    repository: AnimalRepository = AnimalRepository(),
-) {
+fun AnimalsScreen(repository: AnimalRepository = AnimalRepository()) {
     val result = useQuery(arrayOf("animals"), repository::getAnimals)
 
     BaseScaffold(title = stringResource(R.string.screen_title_animals)) {
@@ -31,14 +29,12 @@ fun AnimalsScreen(
 }
 
 @Composable
-fun AnimalsContent(
-    animals: List<Animal>,
-) {
+fun AnimalsContent(animals: List<Animal>) {
     val screenWidth = LocalConfiguration.current.screenWidthDp.dp
     val columns = 3
 
     LazyVerticalGrid(
-        columns = GridCells.Fixed(columns)
+        columns = GridCells.Fixed(columns),
     ) {
         items(items = animals) { animal ->
             AsyncImage(

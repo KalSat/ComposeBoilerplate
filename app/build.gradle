@@ -1,5 +1,3 @@
-import org.yaml.snakeyaml.Yaml
-
 plugins {
     alias(libs.plugins.android.application)
 //    alias(libs.plugins.kotlin.android)
@@ -10,7 +8,7 @@ plugins {
 //apply from: '../build_config.gradle'
 
 android {
-    namespace 'com.thoughtworks.boilerplate'
+    namespace = 'com.thoughtworks.boilerplate'
     compileSdk {
         version = release(libs.versions.compileSdk.get().toInteger()) {
             minorApiLevel = 1
@@ -23,11 +21,10 @@ android {
         targetSdk libs.versions.targetSdk.get().toInteger()
         versionCode 1
         versionName "1.0"
-        multiDexEnabled true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
-            useSupportLibrary true
+            useSupportLibrary = true
         }
 
         buildConfigField "Boolean", "ADD_DEV_MENU", "${gradle.ext.addDevMenu}"
@@ -38,12 +35,12 @@ android {
             debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
-                    'proguard-rules.pro'
+                'proguard-rules.pro'
         }
         release {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'),
-                    'proguard-rules.pro'
+                'proguard-rules.pro'
         }
         dev {
             initWith debug
@@ -68,11 +65,11 @@ android {
         targetCompatibility JavaVersion.VERSION_11
     }
     buildFeatures {
-        compose true
-        buildConfig true
+        compose = true
+        buildConfig = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion libs.versions.kotlinCompilerExtension.get()
+        kotlinCompilerExtensionVersion = libs.versions.kotlinCompilerExtension.get()
     }
     packaging {
         resources {
@@ -115,7 +112,6 @@ android {
 
 dependencies {
     // foundation
-    implementation libs.androidx.multidex
     implementation libs.androidx.core.ktx
     implementation libs.androidx.lifecycle.runtime.ktx
     implementation libs.androidx.lifecycle.viewmodel.compose

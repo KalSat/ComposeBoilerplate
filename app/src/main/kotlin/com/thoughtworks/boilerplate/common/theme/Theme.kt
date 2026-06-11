@@ -29,6 +29,7 @@ fun ComposeBoilerplateTheme(
         }
 
         darkTheme -> DarkColorScheme
+
         else -> LightColorScheme
     }
     val view = LocalView.current

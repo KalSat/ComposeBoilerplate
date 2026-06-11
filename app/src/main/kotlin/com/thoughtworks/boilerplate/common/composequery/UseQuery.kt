@@ -10,7 +10,7 @@ import androidx.compose.runtime.setValue
 @Composable
 fun <TData> useQuery(
     queryKeys: Array<String>,
-    queryFn: suspend () -> TData
+    queryFn: suspend () -> TData,
 ): UseQueryResult<TData> {
     var data by remember { mutableStateOf<TData?>(null) }
     var state by remember { mutableStateOf(QueryStatus.IDLE) }

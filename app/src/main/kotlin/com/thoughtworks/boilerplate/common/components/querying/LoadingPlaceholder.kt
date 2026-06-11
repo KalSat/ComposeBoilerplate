@@ -26,7 +26,7 @@ fun LoadingPlaceholder(modifier: Modifier = Modifier) {
             .background(MaterialTheme.colorScheme.surface)
             .then(modifier),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         CircularProgressIndicator(modifier = Modifier.size(Size.XL))
 
@@ -34,7 +34,7 @@ fun LoadingPlaceholder(modifier: Modifier = Modifier) {
 
         Text(
             text = stringResource(R.string.loading),
-            color = MaterialTheme.colorScheme.onSurface
+            color = MaterialTheme.colorScheme.onSurface,
         )
     }
 }

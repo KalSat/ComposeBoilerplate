@@ -28,9 +28,11 @@ fun BaseScaffold(
         modifier = Modifier
             .fillMaxSize()
             .pointerInput(Unit) {
-                detectTapGestures(onTap = {
-                    focusManager.clearFocus()
-                })
+                detectTapGestures(
+                    onTap = {
+                        focusManager.clearFocus()
+                    },
+                )
             },
         topBar = {
             if (topBar != null) {

@@ -33,7 +33,7 @@ fun DevMenuDrawer() {
             .fillMaxHeight()
             .background(color = MaterialTheme.colorScheme.background)
             .padding(EdgeInset.M)
-            .verticalScroll(rememberScrollState())
+            .verticalScroll(rememberScrollState()),
     ) {
         Text(
             text = "Dev Menu",

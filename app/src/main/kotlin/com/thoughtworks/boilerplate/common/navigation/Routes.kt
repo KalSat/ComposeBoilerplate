@@ -17,15 +17,12 @@ object Routes {
 }
 
 @Composable
-fun NavigationGraph(
-    navHostController: NavHostController,
-    startDestination: String,
-) {
+fun NavigationGraph(navHostController: NavHostController, startDestination: String) {
     val devMenu = LocalDevMenu.current
 
     NavHost(
         navController = navHostController,
-        startDestination = startDestination
+        startDestination = startDestination,
     ) {
         composable(
             route = Routes.HOME,

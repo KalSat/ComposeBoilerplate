@@ -27,7 +27,7 @@ private class DummyNavController(context: Context) : NavController(context) {
     override fun navigate(
         request: NavDeepLinkRequest,
         navOptions: NavOptions?,
-        navigatorExtras: Navigator.Extras?
+        navigatorExtras: Navigator.Extras?,
     ) {
         printStackTrace("navigate")
     }
@@ -36,7 +36,7 @@ private class DummyNavController(context: Context) : NavController(context) {
         @IdRes resId: Int,
         args: Bundle?,
         navOptions: NavOptions?,
-        navigatorExtras: Navigator.Extras?
+        navigatorExtras: Navigator.Extras?,
     ) {
         printStackTrace("navigate")
     }
@@ -51,11 +51,7 @@ private class DummyNavController(context: Context) : NavController(context) {
         return false
     }
 
-    override fun popBackStack(
-        destinationId: Int,
-        inclusive: Boolean,
-        saveState: Boolean
-    ): Boolean {
+    override fun popBackStack(destinationId: Int, inclusive: Boolean, saveState: Boolean): Boolean {
         printStackTrace("popBackStack")
         return false
     }

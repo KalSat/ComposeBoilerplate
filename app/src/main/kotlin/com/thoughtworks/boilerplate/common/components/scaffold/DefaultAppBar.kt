@@ -19,7 +19,9 @@ import com.thoughtworks.boilerplate.common.utils.LocalNavController
 @Composable
 fun DefaultAppBar(title: String) {
     val navController = LocalNavController.current
-    val isBackButtonVisible by remember { derivedStateOf { navController.previousBackStackEntry != null } }
+    val isBackButtonVisible by remember {
+        derivedStateOf { navController.previousBackStackEntry != null }
+    }
 
     TopAppBar(
         title = { Text(text = title) },
@@ -28,17 +30,17 @@ fun DefaultAppBar(title: String) {
             scrolledContainerColor = MaterialTheme.colorScheme.primaryContainer,
             navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
             titleContentColor = MaterialTheme.colorScheme.onPrimary,
-            actionIconContentColor = MaterialTheme.colorScheme.onPrimary
+            actionIconContentColor = MaterialTheme.colorScheme.onPrimary,
         ),
         navigationIcon = {
             if (isBackButtonVisible) {
                 IconButton(onClick = { navController.popBackStack() }) {
                     Icon(
                         imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Back"
+                        contentDescription = "Back",
                     )
                 }
             }
-        }
+        },
     )
 }

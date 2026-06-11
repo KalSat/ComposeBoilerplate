@@ -4,12 +4,10 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-private const val defaultBaseUrl = "https://thoughtworks-mobile-2018.herokuapp.com/"
+private const val DEFAULT_BASE_URL = "https://thoughtworks-mobile-2018.herokuapp.com/"
 val sRetrofitApiFactory = RetrofitApiFactory()
 
-class RetrofitApiFactory constructor(
-    private val httpClient: OkHttpClient = sHttpClient,
-) {
+class RetrofitApiFactory constructor(private val httpClient: OkHttpClient = sHttpClient) {
     private val clientMap: MutableMap<String, Retrofit> = mutableMapOf()
 
     inline fun <reified T> createApi(): T = getRetrofit(T::class.java).create(T::class.java)
@@ -21,16 +19,14 @@ class RetrofitApiFactory constructor(
 
     private fun <T> getBaseUrl(clazz: Class<T>): String {
         val baseUrl = clazz.getAnnotation(BaseUrl::class.java)?.value
-        return baseUrl ?: defaultBaseUrl
+        return baseUrl ?: DEFAULT_BASE_URL
     }
 
-    private fun createRetrofit(baseUrl: String): Retrofit {
-        return Retrofit.Builder()
-            .baseUrl(baseUrl)
-            .client(httpClient)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
+    private fun createRetrofit(baseUrl: String): Retrofit = Retrofit.Builder()
+        .baseUrl(baseUrl)
+        .client(httpClient)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
 }
 
 @Target(AnnotationTarget.CLASS)

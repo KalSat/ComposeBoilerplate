@@ -21,35 +21,30 @@ import com.thoughtworks.boilerplate.R
 import com.thoughtworks.boilerplate.common.theme.EdgeInset
 import com.thoughtworks.boilerplate.common.theme.Size
 
-enum class ErrorType(
-    val title: Int,
-    val subTitle: Int,
-    val imgId: Int
-
-) {
+enum class ErrorType(val title: Int, val subTitle: Int, val imgId: Int) {
     LOADING_OR_PARSING(
         title = R.string.parse_and_loading_error_title,
         subTitle = R.string.parse_and_loading_error_subtitle,
-        imgId = R.drawable.empty_network_error
+        imgId = R.drawable.empty_network_error,
     ),
     INTERNET(
         title = R.string.connection_error_title,
         subTitle = R.string.connection_error_subtitle,
-        imgId = R.drawable.empty_no_network
-    )
+        imgId = R.drawable.empty_no_network,
+    ),
 }
 
 @Composable
 fun ErrorPlaceholder(
     modifier: Modifier = Modifier,
     errorType: ErrorType = ErrorType.LOADING_OR_PARSING,
-    onRetry: () -> Unit
+    onRetry: () -> Unit,
 ) {
     Column(
         modifier = modifier
             .padding(horizontal = EdgeInset.M),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Image(
             modifier = Modifier.size(Size.Giant),
@@ -65,7 +60,7 @@ fun ErrorPlaceholder(
             text = stringResource(id = errorType.title),
             style = MaterialTheme.typography.titleSmall,
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onBackground
+            color = MaterialTheme.colorScheme.onBackground,
         )
 
         Spacer(modifier = Modifier.height(EdgeInset.XXS))
@@ -74,13 +69,13 @@ fun ErrorPlaceholder(
             text = stringResource(id = errorType.subTitle),
             style = MaterialTheme.typography.labelMedium,
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onBackground
+            color = MaterialTheme.colorScheme.onBackground,
         )
 
         Spacer(modifier = Modifier.height(EdgeInset.L))
 
         Button(
-            onClick = onRetry
+            onClick = onRetry,
         ) {
             Text(text = stringResource(R.string.retry))
         }

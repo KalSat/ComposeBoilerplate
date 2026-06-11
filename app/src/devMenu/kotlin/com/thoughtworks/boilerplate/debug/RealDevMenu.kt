@@ -25,7 +25,7 @@ class RealDevMenu : DevMenu {
             },
             content = {
                 content()
-            }
+            },
         )
     }
 

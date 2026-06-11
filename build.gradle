@@ -18,8 +18,7 @@ subprojects {
     spotless {
         kotlin {
             ktlint()
-                    .userData([android: 'true'])
-                    .setEditorConfigPath("$rootProject.projectDir/.editorconfig")
+                .setEditorConfigPath("$rootProject.projectDir/.editorconfig")
             target '**/*.kt'
         }
     }

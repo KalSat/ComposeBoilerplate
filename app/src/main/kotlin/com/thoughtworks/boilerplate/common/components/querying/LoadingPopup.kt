@@ -15,7 +15,7 @@ fun LoadingPopup(onBackPressed: () -> Unit) {
         onDismissRequest = onBackPressed,
         properties = DialogProperties(
             dismissOnBackPress = true,
-            dismissOnClickOutside = false
+            dismissOnClickOutside = false,
         ),
     ) {
         LoadingDialogContent()

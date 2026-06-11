@@ -10,13 +10,11 @@ import com.thoughtworks.boilerplate.common.theme.ComposeBoilerplateTheme
 import com.thoughtworks.boilerplate.common.utils.LocalDevMenu
 
 @Composable
-fun HomeScreen(
-    homeViewModel: HomeViewModel = viewModel { HomeViewModel() },
-) {
+fun HomeScreen(homeViewModel: HomeViewModel = viewModel { HomeViewModel() }) {
     val devMenu = LocalDevMenu.current
 
     devMenu.ScreenContainer {
-        BaseScaffold() {
+        BaseScaffold {
             Greeting(homeViewModel.name)
         }
     }

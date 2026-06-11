@@ -31,19 +31,21 @@ fun <TData> QueryWrapper(
     },
     errorAlert: (@Composable (Throwable) -> Unit) = { err ->
         Snackbar(
-            modifier = Modifier.padding(8.dp)
+            modifier = Modifier.padding(8.dp),
         ) {
             Text(
                 stringResource(
                     when (err) {
-                        is ConnectException, is UnknownHostException -> R.string.connection_error_subtitle
+                        is ConnectException, is UnknownHostException ->
+                            R.string.connection_error_subtitle
+
                         else -> R.string.parse_and_loading_error_subtitle
-                    }
-                )
+                    },
+                ),
             )
         }
     },
-    contentView: @Composable (data: TData) -> Unit
+    contentView: @Composable (data: TData) -> Unit,
 ) {
     val (data, state, error) = result
     when (state) {
@@ -78,5 +80,4 @@ fun <TData> QueryWrapper(
             }
         }
     }
-
 }

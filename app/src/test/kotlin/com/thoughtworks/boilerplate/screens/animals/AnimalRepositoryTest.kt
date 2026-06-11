@@ -30,7 +30,7 @@ class AnimalRepositoryTest : BaseCoroutineTest() {
         animalRepository = AnimalRepository(
             catApi = catApi,
             dogApi = dogApi,
-            dispatcher = mainCoroutineRule.testDispatcher
+            dispatcher = mainCoroutineRule.testDispatcher,
         )
     }
 

@@ -8,9 +8,7 @@ import com.thoughtworks.boilerplate.common.theme.ComposeBoilerplateTheme
 import com.thoughtworks.boilerplate.common.utils.LocalNavController
 
 @Composable
-fun ComposeApp(
-    firstScreen: String,
-) {
+fun ComposeApp(firstScreen: String) {
     ComposeBoilerplateTheme {
         val navController = rememberNavController()
 

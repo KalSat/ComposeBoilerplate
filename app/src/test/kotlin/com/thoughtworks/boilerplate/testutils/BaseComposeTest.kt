@@ -11,7 +11,7 @@ import org.robolectric.annotation.Config
     application = TestApp::class,
     instrumentedPackages = [
         // required to access final members on androidx.loader.content.ModernAsyncTask
-        "androidx.loader.content"
+        "androidx.loader.content",
     ],
 )
 abstract class BaseComposeTest {
