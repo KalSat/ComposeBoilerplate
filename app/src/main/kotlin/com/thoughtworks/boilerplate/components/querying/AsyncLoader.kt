@@ -15,7 +15,7 @@ import java.net.ConnectException
 import java.net.UnknownHostException
 
 @Composable
-fun <TData> QueryWrapper(
+fun <TData> AsyncLoader(
     result: UseQueryResult<TData>,
     showLoadingInReload: Boolean = true,
     loadingView: @Composable () -> Unit = { LoadingPlaceholder() },

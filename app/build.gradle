@@ -125,7 +125,6 @@ dependencies {
     implementation libs.androidx.material.icons.extended
     implementation libs.coil.compose
     implementation libs.compose.hooks
-    implementation libs.usecompose
     // network
     implementation libs.okhttp
     implementation libs.okhttp.logging

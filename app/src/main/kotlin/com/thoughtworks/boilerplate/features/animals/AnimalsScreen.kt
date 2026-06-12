@@ -12,7 +12,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.thoughtworks.boilerplate.R
-import com.thoughtworks.boilerplate.components.querying.QueryWrapper
+import com.thoughtworks.boilerplate.components.querying.AsyncLoader
 import com.thoughtworks.boilerplate.components.scaffold.BaseScaffold
 import com.thoughtworks.boilerplate.shared.composequery.useQuery
 
@@ -21,7 +21,7 @@ fun AnimalsScreen(repository: AnimalRepository = AnimalRepository()) {
     val result = useQuery(arrayOf("animals"), repository::getAnimals)
 
     BaseScaffold(title = stringResource(R.string.screen_title_animals)) {
-        QueryWrapper(result) { data ->
+        AsyncLoader(result) { data ->
             AnimalsContent(data)
         }
     }

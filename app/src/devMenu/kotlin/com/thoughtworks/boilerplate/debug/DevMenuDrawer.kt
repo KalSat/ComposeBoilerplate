@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import com.thoughtworks.boilerplate.BuildConfig
 import com.thoughtworks.boilerplate.Routes
+import com.thoughtworks.boilerplate.states.sAuthState
 import com.thoughtworks.boilerplate.theme.EdgeInset
 import com.thoughtworks.boilerplate.theme.FontSize
 import com.thoughtworks.boilerplate.utils.LocalNavController
@@ -49,6 +50,12 @@ fun DevMenuDrawer() {
 
         TextButton(onClick = { navController.navigate(DevMenuRoutes.TEST) }) {
             Text(text = "Test", fontSize = FontSize.S)
+        }
+
+        Spacer(modifier = Modifier.height(EdgeInset.L))
+
+        TextButton(onClick = { sAuthState.logout() }) {
+            Text(text = "Logout", fontSize = FontSize.S, color = MaterialTheme.colorScheme.error)
         }
     }
 }
